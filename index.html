@@ -22,6 +22,8 @@
         input { width: 100%; padding: 11px 12px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: #fff; }
         .btn-submit { width: 100%; padding: 14px; margin-top: 10px; background: linear-gradient(135deg, #d97706, #b45309); color: white; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; }
         .result-box { margin-top: 20px; padding: 18px; background: #0f172a; border-radius: 12px; border: 1px solid var(--accent-gold); display: none; }
+        .loader { border: 3px solid #1e293b; border-top: 3px solid var(--accent-gold); border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; display: inline-block; margin-right: 8px; }
+        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
     </style>
 </head>
 <body>
@@ -55,16 +57,16 @@
             <label><i class="fa-solid fa-location-dot"></i> Janam Sthan</label>
             <input type="text" id="pob" placeholder="City, State">
         </div>
-        <button class="btn-submit" onclick="generateKundli()">Free AI Kundli Banayein</button>
+        <button class="btn-submit" id="btn" onclick="generateKundli()">Free AI Kundli Banayein</button>
 
         <div class="result-box" id="resultBox">
             <h3 style="color: var(--accent-gold); margin-bottom: 10px;">Aapki AI Kundli Analysis</h3>
-            <p id="resultText" style="line-height: 1.6; color: #cbd5e1;"></p>
+            <div id="resultText" style="line-height: 1.6; color: #cbd5e1;"></div>
         </div>
     </div>
 
 <script>
-    function generateKundli() {
+    async function generateKundli() {
         const name = document.getElementById('name').value;
         const dob = document.getElementById('dob').value;
         const tob = document.getElementById('tob').value;
@@ -77,11 +79,35 @@
 
         const resultBox = document.getElementById('resultBox');
         const resultText = document.getElementById('resultText');
+        const btn = document.getElementById('btn');
 
         resultBox.style.display = 'block';
-        resultText.innerHTML = '⌛ <b>AI Planet Calculations in Progress...</b><br><br>' + 
-            '<b>Namaskar ' + name + ' ji!</b><br>' +
-            'Aapke janam details (' + dob + ' ko ' + tob + ' baje, ' + pob + ') ke aadhar par AI Graha aur Dasha calculate kar raha hai.';
+        btn.disabled = true;
+        resultText.innerHTML = '<span class="loader"></span> <b>AI Graha aur Kundli Analysis kar raha hai... 5-10 second rukiye.</b>';
+
+        try {
+            // Instant Astrological Calculation Simulation Engine
+            setTimeout(() => {
+                resultText.innerHTML = `
+                    <p><b>👤 Naam:</b> ${name}</p>
+                    <p><b>📅 Janam Tithi:</b> \({dob} (\){tob})</p>
+                    <p><b>📍 Sthan:</b> ${pob}</p>
+                    <hr style="border-color:#334155; margin:10px 0;">
+                    <h4 style="color:#fbbf24; margin-bottom:5px;">🌟 Grah Sthiti & Rashifal:</h4>
+                    <p>Aapke janam विवरण ke aadhar par aapka Lagna aur Rashi swami shubh sthiti mein hain. Aap swabhav se mehnati aur lakshya ke prati samarpit hain.</p>
+                    <br>
+                    <h4 style="color:#fbbf24; margin-bottom:5px;">💼 Career & Kismat:</h4>
+                    <p>Aane wale samay mein career mein pragati ke yog hain. Hard work se safalta milegi aur dhan aagaman ke naye marg khulenge.</p>
+                    <br>
+                    <h4 style="color:#fbbf24; margin-bottom:5px;">🔮 AI Upay (Remedies):</h4>
+                    <p>1. Roz subah Surya Dev ko jal arpit karein.<br>2. Om Namah Shivaya ka jaap karein taaki mansik shanti bani rahe.</p>
+                `;
+                btn.disabled = false;
+            }, 2500);
+        } catch (error) {
+            resultText.innerHTML = '⚠️ Kuch issue aaya, kripya dobara try karein.';
+            btn.disabled = false;
+        }
     }
 </script>
 </body>
