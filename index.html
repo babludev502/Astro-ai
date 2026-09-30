@@ -319,7 +319,11 @@
             }
         } catch (e) { console.error(e); }
     }
-
+const apiKey = localStorage.getItem('gemini_api_key');
+if (!apiKey) {
+    openApiKeyModal();
+    return;
+}
     async function generateKundli() {
         const name = document.getElementById('name').value.trim();
         const dob = document.getElementById('dob').value;
