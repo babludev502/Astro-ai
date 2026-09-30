@@ -214,15 +214,18 @@ Generate structured HTML output containing:
 Use clean HTML formatting tags like <h4>, <p>, <ul>, <li>, <b> directly in your response text.`;
 
         try {
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${geminiKey}`;
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent`;
 
-            const response = await fetch(apiUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    contents: [{ parts: [{ text: promptText }] }]
-                })
-            });
+const response = await fetch(apiUrl, {
+    method: 'POST',
+    headers: { 
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${geminiKey}`
+    },
+    body: JSON.stringify({
+        contents: [{ parts: [{ text: promptText }] }]
+    })
+});
 
             const data = await response.json();
 
