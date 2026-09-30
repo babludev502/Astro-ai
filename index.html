@@ -4,9 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jagannath Hora AI Kundli - 21 Varga Charts</title>
-    <!-- FontAwesome Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
@@ -18,14 +16,12 @@
             --text-light: #f8fafc;
             --border-gold: rgba(245, 158, 11, 0.35);
         }
-
         * {
             box-sizing: border-box;
             margin: 0;
             padding: 0;
             font-family: 'Poppins', sans-serif;
         }
-
         body {
             background: radial-gradient(circle at top, #1e1b4b, var(--bg-dark));
             color: var(--text-light);
@@ -35,7 +31,6 @@
             flex-direction: column;
             align-items: center;
         }
-
         .top-bar {
             width: 100%;
             max-width: 600px;
@@ -43,7 +38,6 @@
             justify-content: flex-end;
             margin-bottom: 12px;
         }
-
         .btn-settings {
             background: rgba(245, 158, 11, 0.15);
             border: 1px solid var(--accent-gold);
@@ -56,50 +50,11 @@
             align-items: center;
             gap: 8px;
             font-weight: 600;
-            transition: all 0.3s ease;
         }
-
-        .btn-settings:hover {
-            background: rgba(245, 158, 11, 0.3);
-            box-shadow: 0 0 10px rgba(251, 191, 36, 0.3);
-        }
-
         .header {
             text-align: center;
             margin-bottom: 20px;
         }
-
-        .header .icon-box {
-            width: 70px;
-            height: 70px;
-            margin: 0 auto 12px;
-            background: rgba(245, 158, 11, 0.15);
-            border: 2px solid var(--accent-gold);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 0 20px rgba(245, 158, 11, 0.2);
-        }
-
-        .header i {
-            font-size: 36px;
-            color: var(--accent-gold);
-        }
-
-        .header h1 {
-            font-size: 26px;
-            background: linear-gradient(135deg, #ffffff, var(--accent-gold));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        .header p {
-            color: #94a3b8;
-            font-size: 13px;
-            margin-top: 4px;
-        }
-
         .main-card {
             background: var(--card-bg);
             border: 1px solid var(--border-gold);
@@ -108,14 +63,11 @@
             width: 100%;
             max-width: 600px;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
-            backdrop-filter: blur(10px);
         }
-
         .form-group {
             margin-bottom: 16px;
             position: relative;
         }
-
         label {
             display: flex;
             align-items: center;
@@ -124,14 +76,7 @@
             font-size: 12px;
             margin-bottom: 6px;
             text-transform: uppercase;
-            letter-spacing: 0.5px;
-            font-weight: 500;
         }
-
-        label i {
-            color: var(--accent-gold);
-        }
-
         input, select {
             width: 100%;
             padding: 12px;
@@ -141,19 +86,11 @@
             color: #fff;
             font-size: 14px;
             outline: none;
-            transition: border-color 0.2s;
         }
-
-        input:focus, select:focus {
-            border-color: var(--accent-gold);
-            box-shadow: 0 0 5px rgba(251, 191, 36, 0.3);
-        }
-
         .time-row {
             display: flex;
             gap: 10px;
         }
-
         .suggestions-list {
             position: absolute;
             top: 100%;
@@ -167,9 +104,7 @@
             z-index: 100;
             display: none;
             margin-top: 4px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
         }
-
         .suggestion-item {
             padding: 10px 12px;
             cursor: pointer;
@@ -177,12 +112,6 @@
             font-size: 13px;
             color: #e2e8f0;
         }
-
-        .suggestion-item:hover {
-            background: #1e293b;
-            color: var(--accent-gold);
-        }
-
         .btn-submit {
             width: 100%;
             padding: 14px;
@@ -194,22 +123,7 @@
             font-weight: 700;
             cursor: pointer;
             font-size: 15px;
-            letter-spacing: 0.5px;
-            box-shadow: 0 4px 15px rgba(217, 119, 6, 0.4);
-            transition: transform 0.2s, background 0.3s;
         }
-
-        .btn-submit:hover {
-            transform: translateY(-2px);
-            background: linear-gradient(135deg, #f59e0b, #d97706);
-        }
-
-        .btn-submit:disabled {
-            opacity: 0.6;
-            cursor: not-allowed;
-            transform: none;
-        }
-
         .result-box {
             margin-top: 22px;
             padding: 20px;
@@ -218,7 +132,6 @@
             border: 1px solid var(--accent-gold);
             display: none;
         }
-
         .error-box {
             background: rgba(239, 68, 68, 0.15);
             border: 1px solid #ef4444;
@@ -229,7 +142,6 @@
             font-size: 13px;
             display: none;
         }
-
         .loader {
             border: 3px solid #1e293b;
             border-top: 3px solid var(--accent-gold);
@@ -241,12 +153,10 @@
             margin-right: 8px;
             vertical-align: middle;
         }
-
         @keyframes spin {
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-
         .modal {
             display: none;
             position: fixed;
@@ -260,7 +170,6 @@
             justify-content: center;
             padding: 15px;
         }
-
         .modal-content {
             background: #0f172a;
             border: 1px solid var(--accent-gold);
@@ -268,29 +177,17 @@
             width: 100%;
             max-width: 450px;
             padding: 22px;
-            box-shadow: 0 10px 30px rgba(245, 158, 11, 0.2);
         }
-
         .modal-header {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 15px;
         }
-
-        .modal-header h3 {
-            color: var(--accent-gold);
-            font-size: 18px;
-        }
-
         .close-btn {
             color: #94a3b8;
             cursor: pointer;
             font-size: 22px;
-        }
-
-        .close-btn:hover {
-            color: #fff;
         }
     </style>
 </head>
@@ -301,9 +198,9 @@
     </div>
 
     <div class="header">
-        <div class="icon-box"><i class="fa-solid fa-om"></i></div>
-        <h1>Jagannath Hora AI Kundli</h1>
-        <p>► Accurate 21 Varga Charts, Planetary Longitudes & Vedic Predictions</p>
+        <div class="icon-box" style="width:70px; height:70px; margin:0 auto 12px; background:rgba(245,158,11,0.15); border:2px solid #fbbf24; border-radius:50%; display:flex; align-items:center; justify-content:center;"><i class="fa-solid fa-om" style="font-size:36px; color:#fbbf24;"></i></div>
+        <h1 style="font-size:26px; color:#fbbf24;">Jagannath Hora AI Kundli</h1>
+        <p style="color:#94a3b8; font-size:13px; margin-top:4px;">► Accurate 21 Varga Charts, Planetary Longitudes & Vedic Predictions</p>
     </div>
 
     <div class="main-card">
@@ -343,7 +240,7 @@
         <div class="error-box" id="errorBox"></div>
 
         <div class="result-box" id="resultBox">
-            <h3 style="color: var(--accent-gold); border-bottom:1px solid rgba(245,158,11,0.2); padding-bottom:8px; margin-bottom:14px;">
+            <h3 style="color: #fbbf24; border-bottom:1px solid rgba(245,158,11,0.2); padding-bottom:8px; margin-bottom:14px;">
                 <i class="fa-solid fa-scroll"></i> Jagannath Hora AI Chart Report
             </h3>
             <div id="resultContent" style="line-height:1.7; font-size:14px; color:#cbd5e1;"></div>
@@ -353,7 +250,7 @@
     <div class="modal" id="keyModal">
         <div class="modal-content">
             <div class="modal-header">
-                <h3><i class="fa-solid fa-key"></i> Configure API Keys</h3>
+                <h3 style="color: #fbbf24; font-size:18px;"><i class="fa-solid fa-key"></i> Configure API Keys</h3>
                 <span class="close-btn" onclick="closeKeyModal()">&times;</span>
             </div>
             <div class="form-group">
@@ -456,10 +353,10 @@
         const promptText = `Act as an expert Vedic Astrologer following traditional Jagannath Hora rules. Calculate and generate detailed analysis for user:
 Name: ${name}
 Date of Birth: ${dob}
-Time of Birth: ${tob} ${ampm}
-Place of Birth: ${pob} (Latitude: ${selectedLat}, Longitude: ${selectedLon})
+Time of Birth: \({tob}\){ampm}
+Place of Birth: \({pob} (Latitude:\){selectedLat}, Longitude: ${selectedLon})
 
-Generate structured HTML output (without markdown code ticks) containing:
+Generate structured HTML output containing:
 1. Basic Details: Lagna, Moon Sign (Rashi), Nakshatra, and Nakshatra Lord.
 2. Planetary Positions (Sun, Moon, Mars, Mercury, Jupiter, Venus, Saturn, Rahu, Ketu with Degree, Rashi, House position).
 3. 21 Varga Charts Overview (Key Highlights for D1 Rashi, D9 Navamsha, D10 Dashamsha, D60 Shashtiamsha).
@@ -469,8 +366,7 @@ Generate structured HTML output (without markdown code ticks) containing:
 Use clean HTML formatting tags like <h4>, <p>, <ul>, <li>, <b> directly in your response text.`;
 
         try {
-            // FIXED API URL using gemini-2.5-flash endpoint
-            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3.8-flash:generateContent?key=${geminiKey}`;
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${geminiKey}`;
 
             const response = await fetch(apiUrl, {
                 method: 'POST',
@@ -491,7 +387,7 @@ Use clean HTML formatting tags like <h4>, <p>, <ul>, <li>, <b> directly in your 
 
             resultContent.innerHTML = `
                 <div style="background:rgba(245,158,11,0.1); padding:12px; border-radius:8px; margin-bottom:14px; border:1px solid rgba(245,158,11,0.2);">
-                    <p><b>👤 Name:</b> ${name} | <b>📅 DOB:</b> ${dob} (${tob} ${ampm})</p>
+                    <p><b>👤 Name:</b> \({name} | <b>📅 DOB:</b>\){dob} (\({tob}\){ampm})</p>
                     <p><b>📍 Place:</b> ${pob}</p>
                 </div>
                 <div>${aiHtml}</div>
