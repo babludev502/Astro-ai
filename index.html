@@ -3,112 +3,365 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AI Astro - Free Ultra Accurate Kundli & Horoscope</title>
+    <title>Jagannath Hora AI Kundli - 21 Varga Charts</title>
+    <!-- FontAwesome Icons -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        gold: {
+                            400: '#fbbf24',
+                            500: '#f59e0b',
+                            600: '#d97706',
+                            700: '#b45309',
+                        },
+                        astroDark: '#070a12',
+                        cardDark: 'rgba(15, 23, 42, 0.9)',
+                    }
+                }
+            }
+        }
+    </script>
     <style>
-        :root { --primary-gold: #f59e0b; --accent-gold: #fbbf24; --bg-dark: #070a12; --card-bg: rgba(22, 30, 46, 0.85); --text-light: #f8fafc; }
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Poppins', sans-serif; }
-        body { background: radial-gradient(circle at top, #1e1b4b, var(--bg-dark)); color: var(--text-light); min-height: 100vh; padding: 20px 10px; display: flex; flex-direction: column; align-items: center; }
-        .header { text-align: center; margin-bottom: 20px; }
-        .header .icon-box { width: 70px; height: 70px; margin: 0 auto 10px; background: rgba(245, 158, 11, 0.15); border: 2px solid var(--accent-gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
-        .header i { font-size: 36px; color: var(--accent-gold); }
-        .header h1 { font-size: 26px; background: linear-gradient(135deg, #ffffff, var(--accent-gold)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; width: 100%; max-width: 480px; margin-bottom: 20px; }
-        .feature-card { background: var(--card-bg); border: 1px solid rgba(245, 158, 11, 0.25); border-radius: 12px; padding: 12px 5px; text-align: center; }
-        .feature-card i { font-size: 20px; color: var(--accent-gold); margin-bottom: 5px; }
-        .main-card { background: var(--card-bg); border: 1px solid rgba(245, 158, 11, 0.35); border-radius: 18px; padding: 22px 18px; width: 100%; max-width: 480px; }
-        .form-group { margin-bottom: 14px; }
-        label { display: flex; align-items: center; gap: 8px; color: #cbd5e1; font-size: 13px; margin-bottom: 6px; }
-        input { width: 100%; padding: 11px 12px; border-radius: 8px; border: 1px solid #334155; background: #0f172a; color: #fff; }
-        .btn-submit { width: 100%; padding: 14px; margin-top: 10px; background: linear-gradient(135deg, #d97706, #b45309); color: white; border: none; border-radius: 10px; font-weight: 700; cursor: pointer; }
-        .result-box { margin-top: 20px; padding: 18px; background: #0f172a; border-radius: 12px; border: 1px solid var(--accent-gold); display: none; }
-        .loader { border: 3px solid #1e293b; border-top: 3px solid var(--accent-gold); border-radius: 50%; width: 24px; height: 24px; animation: spin 1s linear infinite; display: inline-block; margin-right: 8px; }
-        @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: radial-gradient(circle at top, #1e1b4b, #070a12);
+            color: #f8fafc;
+            min-height: 100vh;
+        }
+        .custom-scrollbar::-webkit-scrollbar {
+            width: 6px;
+        }
+        .custom-scrollbar::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+        .custom-scrollbar::-webkit-scrollbar-thumb {
+            background: #d97706;
+            border-radius: 4px;
+        }
+        @keyframes spin-slow {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .animate-spin-slow {
+            animation: spin-slow 12s linear infinite;
+        }
     </style>
 </head>
-<body>
-    <div class="header">
-        <div class="icon-box"><i class="fa-solid fa-om"></i></div>
-        <h1>AI Kundli & Jyotish Portal</h1>
-        <p>✨ 100% Free - AI Powered Sateek Bhavishyavani</p>
+<body class="p-3 md:p-6 flex flex-col items-center custom-scrollbar">
+
+    <!-- Header Section -->
+    <header class="text-center mb-6 max-w-xl w-full">
+        <div class="relative inline-block mb-3">
+            <div class="w-16 h-16 md:w-20 md:h-20 rounded-full border-2 border-gold-400 bg-gold-500/10 flex items-center justify-center mx-auto shadow-lg shadow-gold-500/20">
+                <i class="fa-solid fa-om text-3xl md:text-4xl text-gold-400 animate-pulse"></i>
+            </div>
+            <i class="fa-solid fa-dharmachakra absolute -top-1 -right-1 text-gold-500/40 text-xl animate-spin-slow"></i>
+        </div>
+        <h1 class="text-2xl md:text-3xl font-bold bg-gradient-to-r from-white via-gold-400 to-amber-500 bg-clip-text text-transparent">
+            Jagannath Hora AI Kundli
+        </h1>
+        <p class="text-xs md:text-sm text-slate-400 mt-1">
+            ✨ Accurate 21 Varga Charts, Planetary Longitudes & Vedic Predictions
+        </p>
+    </header>
+
+    <!-- Top Key Configuration Button -->
+    <div class="w-full max-w-xl flex justify-end mb-3">
+        <button onclick="toggleKeyModal()" class="text-xs bg-slate-800/80 hover:bg-slate-700 text-gold-400 px-3 py-1.5 rounded-lg border border-gold-500/30 flex items-center gap-2 transition">
+            <i class="fa-solid fa-key"></i> API Keys Setup
+        </button>
     </div>
 
-    <div class="features-grid">
-        <div class="feature-card"><i class="fa-solid fa-scroll"></i><h4>Kundli</h4></div>
-        <div class="feature-card"><i class="fa-solid fa-heart"></i><h4>Milan</h4></div>
-        <div class="feature-card"><i class="fa-solid fa-sun"></i><h4>Rashifal</h4></div>
-        <div class="feature-card"><i class="fa-solid fa-wand-magic-sparkles"></i><h4>Upay</h4></div>
+    <!-- API Keys Modal -->
+    <div id="keyModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="bg-slate-900 border border-gold-500/40 rounded-2xl p-5 max-w-md w-full shadow-2xl">
+            <div class="flex justify-between items-center mb-4">
+                <h3 class="text-lg font-bold text-gold-400 flex items-center gap-2">
+                    <i class="fa-solid fa-sliders"></i> API Key Settings
+                </h3>
+                <button onclick="toggleKeyModal()" class="text-slate-400 hover:text-white">
+                    <i class="fa-solid fa-xmark text-xl"></i>
+                </button>
+            </div>
+            <p class="text-xs text-slate-300 mb-4 leading-relaxed">
+                Enter your Google Gemini API Key below. Keys are stored locally in your browser.
+            </p>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Gemini API Key (Required)</label>
+                    <input type="password" id="modalGeminiKey" placeholder="AIzaSy..." class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2.5 text-sm text-white focus:border-gold-400 outline-none">
+                </div>
+                <div>
+                    <label class="block text-xs font-semibold text-slate-300 mb-1">Astrology API Key (Optional)</label>
+                    <input type="password" id="modalAstroKey" placeholder="Optional Secondary Key" class="w-full bg-slate-950 border border-slate-700 rounded-lg p-2.5 text-sm text-white focus:border-gold-400 outline-none">
+                </div>
+            </div>
+            <div class="mt-6 flex justify-end gap-2">
+                <button onclick="toggleKeyModal()" class="px-4 py-2 text-xs text-slate-400 hover:text-white">Cancel</button>
+                <button onclick="saveApiKeys()" class="px-5 py-2 text-xs font-bold bg-gold-600 hover:bg-gold-500 text-white rounded-lg transition">Save Keys</button>
+            </div>
+        </div>
     </div>
 
-    <div class="main-card">
-        <div class="form-group">
-            <label><i class="fa-solid fa-user"></i> Aapka Naam</label>
-            <input type="text" id="name" placeholder="Apna pura naam likhein">
-        </div>
-        <div class="form-group">
-            <label><i class="fa-solid fa-calendar-days"></i> Janam Tithi</label>
-            <input type="date" id="dob">
-        </div>
-        <div class="form-group">
-            <label><i class="fa-solid fa-clock"></i> Janam Samay</label>
-            <input type="time" id="tob">
-        </div>
-        <div class="form-group">
-            <label><i class="fa-solid fa-location-dot"></i> Janam Sthan</label>
-            <input type="text" id="pob" placeholder="City, State">
-        </div>
-        <button class="btn-submit" id="btn" onclick="generateKundli()">Free AI Kundli Banayein</button>
+    <!-- Main Form Card -->
+    <main class="w-full max-w-xl bg-cardDark border border-gold-500/30 rounded-2xl p-5 md:p-6 shadow-2xl backdrop-blur-md">
+        
+        <form id="kundliForm" onsubmit="handleKundliSubmit(event)" class="space-y-4">
+            
+            <!-- Name Input -->
+            <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-2">
+                    <i class="fa-solid fa-user text-gold-400"></i> Full Name (पूरा नाम)
+                </label>
+                <input type="text" id="userName" required placeholder="Ex: Rahul Sharma" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-gold-400 focus:ring-1 focus:ring-gold-400 outline-none transition">
+            </div>
 
-        <div class="result-box" id="resultBox">
-            <h3 style="color: var(--accent-gold); margin-bottom: 10px;">Aapki AI Kundli Analysis</h3>
-            <div id="resultText" style="line-height: 1.6; color: #cbd5e1;"></div>
+            <!-- Date of Birth -->
+            <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-2">
+                    <i class="fa-solid fa-calendar-day text-gold-400"></i> Date of Birth (जन्म तिथि)
+                </label>
+                <input type="date" id="dob" required class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-gold-400 focus:ring-1 focus:ring-gold-400 outline-none transition">
+            </div>
+
+            <!-- Time of Birth + AM/PM -->
+            <div>
+                <label class="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-2">
+                    <i class="fa-solid fa-clock text-gold-400"></i> Time of Birth (जन्म समय)
+                </label>
+                <div class="grid grid-cols-3 gap-2">
+                    <input type="time" id="tob" required class="col-span-2 bg-slate-900/90 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-gold-400 focus:ring-1 focus:ring-gold-400 outline-none transition">
+                    <select id="ampm" class="bg-slate-900/90 border border-slate-700 rounded-xl px-3 py-2.5 text-sm text-gold-400 font-semibold focus:border-gold-400 outline-none transition">
+                        <option value="AM">AM</option>
+                        <option value="PM" selected>PM</option>
+                    </select>
+                </div>
+            </div>
+
+            <!-- Place of Birth with OpenStreetMap Autocomplete -->
+            <div class="relative">
+                <label class="block text-xs font-medium text-slate-300 mb-1 flex items-center gap-2">
+                    <i class="fa-solid fa-location-dot text-gold-400"></i> Place of Birth (जन्म स्थान - Global Search)
+                </label>
+                <div class="relative">
+                    <input type="text" id="pob" required autocomplete="off" placeholder="Type city (e.g. Paradip, New Delhi, London)..." oninput="handleLocationSearch(this.value)" class="w-full bg-slate-900/90 border border-slate-700 rounded-xl px-3.5 py-2.5 text-sm text-white focus:border-gold-400 focus:ring-1 focus:ring-gold-400 outline-none transition pr-8">
+                    <i id="searchSpinner" class="fa-solid fa-circle-notch fa-spin absolute right-3 top-3 text-gold-400 hidden"></i>
+                </div>
+                <!-- Autocomplete Dropdown List -->
+                <div id="suggestionsList" class="absolute left-0 right-0 top-full mt-1 bg-slate-900 border border-gold-500/40 rounded-xl max-h-48 overflow-y-auto z-40 hidden shadow-xl custom-scrollbar"></div>
+            </div>
+
+            <!-- Lat/Long Info Badge -->
+            <div id="coordsBadge" class="text-[11px] text-slate-400 bg-slate-900/60 p-2 rounded-lg border border-slate-800 flex items-center justify-between">
+                <span><i class="fa-solid fa-earth-asia text-gold-400 mr-1"></i> Coordinates: <span id="coordsDisplay" class="text-slate-200">Auto-detected upon selection</span></span>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" id="submitBtn" class="w-full py-3.5 px-4 bg-gradient-to-r from-amber-600 via-gold-600 to-amber-700 hover:from-amber-500 hover:to-gold-600 text-white font-bold rounded-xl shadow-lg shadow-gold-600/30 transform active:scale-[0.99] transition flex items-center justify-center gap-2 text-sm">
+                <i class="fa-solid fa-star"></i> Calculate 21 Varga Charts & Kundli
+            </button>
+
+        </form>
+
+        <!-- Output Display Box -->
+        <div id="resultCard" class="mt-6 border-t border-slate-800 pt-5 hidden">
+            <div id="loader" class="text-center py-8 space-y-3 hidden">
+                <div class="inline-block relative">
+                    <div class="w-12 h-12 border-4 border-slate-700 border-t-gold-400 rounded-full animate-spin"></div>
+                    <i class="fa-solid fa-sun absolute top-3 left-3.5 text-gold-400 text-lg"></i>
+                </div>
+                <p class="text-sm font-semibold text-gold-400 animate-pulse">Calculating Astronomical Planetary Positions...</p>
+                <p class="text-xs text-slate-400">Processing 21 Varga Charts (D1 to D60), Mahadasha & AI Insights</p>
+            </div>
+
+            <div id="outputContent" class="space-y-4 text-sm leading-relaxed text-slate-200"></div>
         </div>
-    </div>
 
-<script>
-    async function generateKundli() {
-        const name = document.getElementById('name').value;
-        const dob = document.getElementById('dob').value;
-        const tob = document.getElementById('tob').value;
-        const pob = document.getElementById('pob').value;
+    </main>
 
-        if(!name || !dob || !tob || !pob) {
-            alert('Kripya sabhi jaankari sahi se bharein!');
-            return;
+    <script>
+        // Global State Variables
+        let selectedLat = null;
+        let selectedLon = null;
+        let searchDebounceTimer = null;
+
+        // Initialize Keys from LocalStorage or Defaults
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedGemini = localStorage.getItem('GEMINI_API_KEY') || '';
+            const savedAstro = localStorage.getItem('ASTROLOGY_API_KEY') || '';
+            document.getElementById('modalGeminiKey').value = savedGemini;
+            document.getElementById('modalAstroKey').value = savedAstro;
+        });
+
+        function toggleKeyModal() {
+            const modal = document.getElementById('keyModal');
+            modal.classList.toggle('hidden');
         }
 
-        const resultBox = document.getElementById('resultBox');
-        const resultText = document.getElementById('resultText');
-        const btn = document.getElementById('btn');
+        function saveApiKeys() {
+            const geminiKey = document.getElementById('modalGeminiKey').value.trim();
+            const astroKey = document.getElementById('modalAstroKey').value.trim();
+            
+            localStorage.setItem('GEMINI_API_KEY', geminiKey);
+            localStorage.setItem('ASTROLOGY_API_KEY', astroKey);
+            
+            alert('API Keys saved successfully!');
+            toggleKeyModal();
+        }
 
-        resultBox.style.display = 'block';
-        btn.disabled = true;
-        resultText.innerHTML = '<span class="loader"></span> <b>AI Graha aur Kundli Analysis kar raha hai... 5-10 second rukiye.</b>';
+        // OpenStreetMap Nominatim Location Search
+        function handleLocationSearch(query) {
+            clearTimeout(searchDebounceTimer);
+            const suggestionsList = document.getElementById('suggestionsList');
+            const spinner = document.getElementById('searchSpinner');
 
-        try {
-            // Instant Astrological Calculation Simulation Engine
-            setTimeout(() => {
-                resultText.innerHTML = `
-                    <p><b>👤 Naam:</b> ${name}</p>
-                    <p><b>📅 Janam Tithi:</b> \({dob} (\){tob})</p>
-                    <p><b>📍 Sthan:</b> ${pob}</p>
-                    <hr style="border-color:#334155; margin:10px 0;">
-                    <h4 style="color:#fbbf24; margin-bottom:5px;">🌟 Grah Sthiti & Rashifal:</h4>
-                    <p>Aapke janam विवरण ke aadhar par aapka Lagna aur Rashi swami shubh sthiti mein hain. Aap swabhav se mehnati aur lakshya ke prati samarpit hain.</p>
-                    <br>
-                    <h4 style="color:#fbbf24; margin-bottom:5px;">💼 Career & Kismat:</h4>
-                    <p>Aane wale samay mein career mein pragati ke yog hain. Hard work se safalta milegi aur dhan aagaman ke naye marg khulenge.</p>
-                    <br>
-                    <h4 style="color:#fbbf24; margin-bottom:5px;">🔮 AI Upay (Remedies):</h4>
-                    <p>1. Roz subah Surya Dev ko jal arpit karein.<br>2. Om Namah Shivaya ka jaap karein taaki mansik shanti bani rahe.</p>
+            if (query.trim().length < 3) {
+                suggestionsList.classList.add('hidden');
+                return;
+            }
+
+            spinner.classList.remove('hidden');
+
+            searchDebounceTimer = setTimeout(async () => {
+                try {
+                    const response = await fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${encodeURIComponent(query)}&limit=5`);
+                    const data = await response.json();
+                    
+                    suggestionsList.innerHTML = '';
+                    if (data && data.length > 0) {
+                        data.forEach(place => {
+                            const item = document.createElement('div');
+                            item.className = 'p-2.5 hover:bg-slate-800 cursor-pointer text-xs border-b border-slate-800 text-slate-300 hover:text-gold-400 transition flex items-center gap-2';
+                            item.innerHTML = `<i class="fa-solid fa-location-dot text-slate-500"></i> <span>${place.display_name}</span>`;
+                            item.onclick = () => {
+                                document.getElementById('pob').value = place.display_name;
+                                selectedLat = parseFloat(place.lat).toFixed(4);
+                                selectedLon = parseFloat(place.lon).toFixed(4);
+                                document.getElementById('coordsDisplay').innerText = `Lat: ${selectedLat}, Lon: ${selectedLon}`;
+                                suggestionsList.classList.add('hidden');
+                            };
+                            suggestionsList.appendChild(item);
+                        });
+                        suggestionsList.classList.remove('hidden');
+                    } else {
+                        suggestionsList.classList.add('hidden');
+                    }
+                } catch (err) {
+                    console.error('Location search failed:', err);
+                } finally {
+                    spinner.classList.add('hidden');
+                }
+            }, 400);
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('#pob') && !e.target.closest('#suggestionsList')) {
+                document.getElementById('suggestionsList').classList.add('hidden');
+            }
+        });
+
+        // Main Calculation Handler
+        async function handleKundliSubmit(event) {
+            event.preventDefault();
+
+            const geminiKey = localStorage.getItem('GEMINI_API_KEY') || document.getElementById('modalGeminiKey').value.trim();
+
+            if (!geminiKey) {
+                alert('Please configure your Gemini API Key first by clicking "API Keys Setup" at top right.');
+                toggleKeyModal();
+                return;
+            }
+
+            const name = document.getElementById('userName').value.trim();
+            const dob = document.getElementById('dob').value;
+            const tob = document.getElementById('tob').value;
+            const ampm = document.getElementById('ampm').value;
+            const pob = document.getElementById('pob').value.trim();
+
+            const resultCard = document.getElementById('resultCard');
+            const loader = document.getElementById('loader');
+            const outputContent = document.getElementById('outputContent');
+            const submitBtn = document.getElementById('submitBtn');
+
+            resultCard.classList.remove('hidden');
+            loader.classList.remove('hidden');
+            outputContent.innerHTML = '';
+            submitBtn.disabled = true;
+
+            const promptText = `Acts as a Jagannath Hora Vedic Astrologer Engine. Calculate exact planetary longitudes and generate a detailed Vedic Kundli report for:
+- Name: ${name}
+- Date of Birth: ${dob}
+- Time of Birth: ${tob} ${ampm}
+- Place of Birth: ${pob} (Latitude: ${selectedLat || 'Auto'}, Longitude: ${selectedLon || 'Auto'})
+
+Generate output directly formatted in clean HTML (using Tailwind classes, <h3>, <h4>, <table>, <ul>, <li>, <b>). Do not wrap in markdown backticks.
+
+Cover the following sections thoroughly in Hindi/Hinglish:
+1. <h3 class="text-lg font-bold text-gold-400 mb-2 border-b border-slate-700 pb-1">1. basic Avakhada Chakra & Lagna Details</h3>
+   (Lagna Rashi, Moon Rashi, Nakshatra, PADA, Nakshatra Lord, Tithi, Yoga, Karana).
+2. <h3 class="text-lg font-bold text-gold-400 my-3 border-b border-slate-700 pb-1">2. Graha Sthiti & Longitudes (Planetary Positions)</h3>
+   Include a clean HTML table displaying Sun, Moon, Mars, Mercury, Jupiter, Venus, Saturn, Rahu, Ketu with Rashi, House (Bhava), and Degrees.
+3. <h3 class="text-lg font-bold text-gold-400 my-3 border-b border-slate-700 pb-1">3. Overview of 21 Divisional Charts (21 Varga Charts)</h3>
+   Provide insights into key charts: D1 (Rashi), D2 (Hora), D3 (Drekkana), D7 (Saptamsha), D9 (Navamsha), D10 (Dashamsha), D12 (Dwadasamsha), D16 (Shodashamsha), D20 (Vimshamsha), D24 (Siddhamsha), D27 (Saptavimshamsha), D30 (Trimshamsha), D40 (Khavedamsha), D45 (Akshavedamsha), D60 (Shashtiamsha).
+4. <h3 class="text-lg font-bold text-gold-400 my-3 border-b border-slate-700 pb-1">4. Vimshottari Dasha Analysis</h3>
+   Current Mahadasha & Antardasha timeline.
+5. <h3 class="text-lg font-bold text-gold-400 my-3 border-b border-slate-700 pb-1">5. AI Predictions & Life Insights</h3>
+   Career, Health, Wealth & Marriage/Relationships.
+6. <h3 class="text-lg font-bold text-gold-400 my-3 border-b border-slate-700 pb-1">6. Vedic Remedies & Gemstones</h3>
+   Effective remedies, Gemstone recommendation, and Mantra.`;
+
+            try {
+                const response = await fetch(`https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${geminiKey}`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        contents: [{ parts: [{ text: promptText }] }]
+                    })
+                });
+
+                if (!response.ok) {
+                    throw new Error(`API Request failed with status ${response.status}`);
+                }
+
+                const result = await response.json();
+                let responseText = result.candidates[0].content.parts[0].text;
+                
+                // Clean markdown ticks if returned
+                responseText = responseText.replace(/```html/g, '').replace(/```/g, '');
+
+                outputContent.innerHTML = `
+                    <div class="bg-slate-900/80 p-4 rounded-xl border border-gold-500/30 mb-4">
+                        <div class="flex justify-between items-center text-xs text-slate-400 border-b border-slate-800 pb-2 mb-2">
+                            <span><b class="text-gold-400">Jathaka:</b> ${name}</span>
+                            <span><b class="text-gold-400">DOB:</b> ${dob} (${tob} ${ampm})</span>
+                        </div>
+                        <div class="text-xs text-slate-400">
+                            <b>Place:</b> ${pob} (${selectedLat || 'N/A'}, ${selectedLon || 'N/A'})
+                        </div>
+                    </div>
+                    ${responseText}
                 `;
-                btn.disabled = false;
-            }, 2500);
-        } catch (error) {
-            resultText.innerHTML = '⚠️ Kuch issue aaya, kripya dobara try karein.';
-            btn.disabled = false;
+            } catch (err) {
+                outputContent.innerHTML = `
+                    <div class="p-4 bg-red-950/60 border border-red-500/50 rounded-xl text-red-300 text-xs leading-relaxed">
+                        <i class="fa-solid fa-triangle-exclamation mr-1 text-red-400"></i>
+                        <b>Calculation Error:</b> ${err.message}. Please verify your Gemini API Key in the settings top menu and try again.
+                    </div>
+                `;
+                console.error(err);
+            } finally {
+                loader.classList.add('hidden');
+                submitBtn.disabled = false;
+            }
         }
-    }
-</script>
+    </script>
 </body>
 </html>
